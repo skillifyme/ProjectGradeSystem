@@ -1,0 +1,215 @@
+/* Custom Fonts (Add if this is a standalone file, otherwise import in global app.css) */
+/* @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap'); */
+
+.pricing {
+  background: #F8F6F2; /* Light Cream/Off-White */
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+#pricehead{
+  text-align: center;
+}
+
+#pricesubhead{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pricing-card {
+  background: white; /* Keep white for cards */
+  border: 2px solid #E9ECEF; /* Light Gray border */
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: #8B7C6E; /* Muted Brown/Sepia */
+}
+
+.pricing-card-popular {
+  border-color: #c74427; /* Muted Brown/Sepia */
+  box-shadow: 0 15px 35px rgba(139, 124, 110, 0.15); /* Shadow adjusted to theme color */
+  transform: scale(1.05);
+}
+
+.pricing-card-popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Updated background gradient to theme colors */
+  background: linear-gradient(135deg, #c74427, #c74427);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pricing-header {
+  margin-bottom: 40px;
+}
+
+.plan-name {
+  font-family: 'Baskervville', serif; /* Serif font for plan names */
+  font-size: 1.5rem;
+  color: #8B7C6E; /* Muted Brown/Sepia */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.plan-price {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+}
+
+.currency {
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  font-size: 1.2rem;
+  color: #5A5A5A; /* Slightly lighter dark text */
+}
+
+.amount {
+  font-family: 'Baskervville', serif; /* Serif font for amount */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #8B7C6E; /* Muted Brown/Sepia */
+}
+
+.period {
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  font-size: 1rem;
+  color: #5A5A5A; /* Slightly lighter dark text */
+}
+
+.plan-description {
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  color: #5A5A5A; /* Slightly lighter dark text */
+  line-height: 1.6;
+}
+
+.pricing-features {
+  margin-bottom: 40px;
+}
+
+.pricing-features ul {
+  list-style: none;
+  text-align: left;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  color: #5A5A5A; /* Slightly lighter dark text */
+}
+
+.feature-check {
+  color: #8B7C6E; /* Muted Brown/Sepia */
+  background: rgba(139, 124, 110, 0.1); /* Background adjusted to theme color */
+  border-radius: 50%;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.pricing-btn {
+  width: 100%;
+  padding: 15px;
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn-popular {
+  /* Updated background gradient to theme colors */
+  background: linear-gradient(135deg, #c74427, #c74427);
+  color: white;
+  border: none;
+}
+
+.btn-popular:hover {
+  /* Slightly darker gradient on hover */
+  background: linear-gradient(135deg, #7B6C5E, #6A5B4E);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 124, 110, 0.3); /* Shadow adjusted to theme color */
+}
+
+.pricing-guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+  background: #F0ECDD; /* Very light warm background */
+  border-radius: 15px;
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font */
+  color: #8B7C6E; /* Muted Brown/Sepia */
+  font-weight: 500;
+}
+
+.pricing-guarantee svg {
+  color: #AA8D69; /* Subtle gold-like accent for the icon */
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .pricing-card {
+    padding: 30px;
+  }
+  
+  .pricing-card-popular {
+    transform: none;
+  }
+  
+  .pricing-card-popular:hover {
+    transform: translateY(-10px);
+  }
+  
+  .amount {
+    font-size: 2.5rem;
+  }
+}
+
+.section-title {
+  font-family: 'Baskervville', serif; /* Serif font for section title */
+  color: #3C3C3C; /* Dark Brown/Charcoal */
+  margin-bottom: 10px; 
+  margin-top: 40px;
+}
+
+.section-subtitle {
+  font-family: 'Source Sans 3', sans-serif; /* Sans-serif font for section subtitle */
+  margin-top: 0; 
+  margin-bottom: 50px; 
+  color: #5A5A5A; /* Slightly lighter dark text */
+  font-size: 1rem;
+  text-align: center;
+}

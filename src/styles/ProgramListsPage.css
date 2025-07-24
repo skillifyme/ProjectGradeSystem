@@ -1,0 +1,276 @@
+/* Program List Page Styles */
+.program-list-page {
+  min-height: 100vh;
+  background: #F8F6F2; /* Warm off-white/cream background */
+  padding-top: 80px;
+  font-family: 'Baskerville', 'Georgia', serif; /* Classic serif font stack */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header Section */
+.program-list-header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.back-button {
+  background: none;
+  border: 1px solid #8B7C6E; /* Muted brown border */
+  color: #5A5A5A; /* Dark gray-brown text */
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+}
+
+.back-button:hover {
+  background: #5A5A5A;
+  color: white;
+  border-color: #5A5A5A;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #3C3C3C; /* Dark charcoal */
+  margin-bottom: 16px;
+  line-height: 1.2;
+  font-family: 'Baskerville', 'Georgia', serif;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: #8B7C6E; /* Muted brown */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+}
+
+/* Programs Section */
+.programs-section {
+  padding-bottom: 100px;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+/* Program List Cards */
+.program-list-card {
+  background: #FFFDFA; /* Slightly warmer white for cards */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E0E0E0; /* Very light gray border */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.program-list-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.program-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.program-card-content {
+  padding: 24px;
+}
+
+.program-location {
+  font-size: 0.8rem;
+  color: #8B7C6E; /* Muted brown */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.program-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3C3C3C; /* Dark charcoal */
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  font-family: 'Baskerville', 'Georgia', serif;
+}
+
+/* Special Offer Tags */
+.special-offer-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+/* Free Guest Tag */
+.special-offer-tag.free-guest {
+  background: #E2EFE1; /* Very light green */
+  color: #709A72; /* Muted green */
+  border: 1px solid #D0E0CF;
+}
+
+/* Save Nightly Tag */
+.special-offer-tag.save-nightly {
+  background: #F2E0D1; /* Very light peach */
+  color: #E78223; /* Soft orange */
+  border: 1px solid #E8D0C0;
+}
+
+/* Free Night Tag */
+.special-offer-tag.free-night {
+  background: #EFEFEF; /* Very light gray */
+  color: #A0A0A0; /* Medium gray */
+  border: 1px solid #E0E0E0;
+}
+
+.program-description {
+  font-size: 1rem;
+  color: #5A5A5A; /* Dark gray-brown */
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+}
+
+.program-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #5A5A5A;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+}
+
+.detail-icon {
+  font-size: 1rem;
+  color: inherit;
+}
+
+.learn-more-link {
+  text-align: center;
+  color: #C44C30; /* Muted brown */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-top: 16px;
+  border-top: 1px solid #E0E0E0; /* Very light gray */
+  transition: color 0.3s ease;
+  font-family: 'Baskerville', 'Georgia', serif;
+}
+
+.learn-more-link:hover {
+  color: #3C3C3C; /* Dark charcoal */
+}
+
+/* No Programs State */
+.no-programs {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.no-programs h3 {
+  font-size: 1.5rem;
+  color: #3C3C3C;
+  margin-bottom: 16px;
+  font-family: 'Baskerville', 'Georgia', serif;
+}
+
+.no-programs p {
+  font-size: 1rem;
+  color: #8B7C6E;
+  margin-bottom: 32px;
+  font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #8B7C6E; /* Muted brown */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .programs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .page-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-list-page {
+    padding-top: 60px;
+  }
+  
+  .program-list-header {
+    padding: 40px 0 60px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .program-list-card {
+    padding: 20px;
+  }
+}
