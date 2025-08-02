@@ -1,8 +1,11 @@
+
+
+
 // src/pages/dashboard/User/UserServices.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../../../components/Layout/DashboardLayout';
-import { Plus, Edit } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import '../../../styles/UserServices.css';
 
 interface Program {
@@ -12,18 +15,17 @@ interface Program {
   description: string;
   duration: string;
   price: string;
-  status: 'booked' | 'approved' | 'pending' | 'draft' | 'inactive';
-   includes: {
+  status: 'booked' | 'upcoming' | 'canceled';
+  includes: {
     title: string;
     description: string;
   }[];
   image: string;
- 
 }
 
 const UserServices: React.FC = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'booked' | 'approved' | 'pending' | 'draft' | 'inactive'>('approved');
+  const [activeTab, setActiveTab] = useState<'booked' | 'upcoming' | 'canceled'>('booked');
   
   // Mock data - matches your design exactly
   const programs: Program[] = [
@@ -51,7 +53,7 @@ const UserServices: React.FC = () => {
       description: 'Optimize your metabolism and reset your body\'s natural rhythms.',
       duration: '6 Days / 5 Nights',
       price: '$3,900',
-      status: 'approved',
+      status: 'upcoming',
       image: 'https://images.pexels.com/photos/3825587/pexels-photo-3825587.jpeg',
       includes: [
         { title: 'Metabolic rate testing', description: 'Track how efficiently your body burns calories.' },
@@ -66,7 +68,7 @@ const UserServices: React.FC = () => {
       description: 'Epigenetic testing and advanced anti-aging therapies in the Sonoran Desert.',
       duration: '7 Days / 6 Nights',
       price: '$4,200',
-      status: 'pending',
+      status: 'canceled',
       image: 'https://images.pexels.com/photos/3825589/pexels-photo-3825589.jpeg',
       includes: [
         { title: 'Epigenetic testing', description: 'Comprehensive analysis of your biological age.' },
@@ -80,7 +82,7 @@ const UserServices: React.FC = () => {
       description: 'Deepen your meditation practice in the red rocks of Sedona.',
       duration: '5 Days / 4 Nights',
       price: '$2,800',
-      status: 'inactive',
+      status: 'booked',
       image: 'https://images.pexels.com/photos/3825591/pexels-photo-3825591.jpeg',
       includes: [
         { title: 'Daily meditation sessions', description: 'Guided practices for all levels.' },
@@ -94,7 +96,7 @@ const UserServices: React.FC = () => {
       description: 'Purify your body with our mountain detox program.',
       duration: '8 Days / 7 Nights',
       price: '$5,500',
-      status: 'draft',
+      status: 'upcoming',
       image: 'https://images.pexels.com/photos/4588008/pexels-photo-4588008.jpeg',
       includes: [
         { title: 'Detox protocols', description: 'Gentle cleansing for body and mind.' },
@@ -109,36 +111,6 @@ const UserServices: React.FC = () => {
     navigate('/explore');
   };
 
-  const handleAddService = () => {
-    navigate('/dashboard/user/services/new');
-  };
-
-  const handleEditProgram = (id: string) => {
-    navigate(`/dashboard/user/services/edit/${id}`);
-  };
-
-  // const getStatusLabel = (status: string) => {
-  //   switch (status) {
-  //     case 'approved': return 'ACTIVE';
-  //     case 'pending': return 'PENDING';
-  //     case 'draft': return 'DRAFT';
-  //     case 'inactive': return 'INACTIVE';
-  //     case 'booked': return 'BOOKED';
-  //     default: return '';
-  //   }
-  // };
-
-  // const getStatusColor = (status: string) => {
-  //   switch (status) {
-  //     case 'approved': return '#10B981';
-  //     case 'pending': return '#F59E0B';
-  //     case 'draft': return '#3B82F6';
-  //     case 'inactive': return '#EF4444';
-  //     case 'booked': return '#4F46E5';
-  //     default: return '#6B7280';
-  //   }
-  // };
-
   return (
     <DashboardLayout role="user">
       <div className="user-services">
@@ -149,10 +121,6 @@ const UserServices: React.FC = () => {
               <Plus size={16} />
               BOOK A SERVICE
             </button>
-            <button className="secondary-button" onClick={handleAddService}>
-              <Plus size={16} />
-              ADD A SERVICE
-            </button>
           </div>
         </div>
 
@@ -161,31 +129,19 @@ const UserServices: React.FC = () => {
             className={`user-services__tab ${activeTab === 'booked' ? 'active' : ''}`}
             onClick={() => setActiveTab('booked')}
           >
-            Previously Booked
+            Booked
           </button>
           <button
-            className={`user-services__tab ${activeTab === 'approved' ? 'active' : ''}`}
-            onClick={() => setActiveTab('approved')}
+            className={`user-services__tab ${activeTab === 'upcoming' ? 'active' : ''}`}
+            onClick={() => setActiveTab('upcoming')}
           >
-            Approved
+            Upcoming
           </button>
           <button
-            className={`user-services__tab ${activeTab === 'pending' ? 'active' : ''}`}
-            onClick={() => setActiveTab('pending')}
+            className={`user-services__tab ${activeTab === 'canceled' ? 'active' : ''}`}
+            onClick={() => setActiveTab('canceled')}
           >
-            Pending
-          </button>
-          <button
-            className={`user-services__tab ${activeTab === 'draft' ? 'active' : ''}`}
-            onClick={() => setActiveTab('draft')}
-          >
-            Drafts
-          </button>
-          <button
-            className={`user-services__tab ${activeTab === 'inactive' ? 'active' : ''}`}
-            onClick={() => setActiveTab('inactive')}
-          >
-            Inactive
+            Canceled
           </button>
         </div>
         
@@ -199,11 +155,6 @@ const UserServices: React.FC = () => {
                     alt={program.name} 
                     className="user-services__card-image" 
                   />
-                  <span 
-                    className={`user-services__status-badge ${program.status}`}
-                  >
-                    {program.status.toUpperCase()}
-                  </span>
                 </div>
                 
                 <div className="user-services__card-content">
@@ -224,16 +175,6 @@ const UserServices: React.FC = () => {
                       <span>{program.price}</span>
                     </div>
                   </div>
-
-                  {program.status !== 'booked' && (
-                    <button 
-                      className="user-services__card-edit-btn"
-                      onClick={() => handleEditProgram(program.id)}
-                    >
-                      <Edit size={16} />
-                      EDIT PROGRAM
-                    </button>
-                  )}
                 </div>
               </div>
             ))
@@ -243,7 +184,7 @@ const UserServices: React.FC = () => {
                 <img src="/placeholder-services.png" alt="No services" />
               </div>
               <h2>You don't have any {activeTab} programs</h2>
-              <p>When you {activeTab === 'booked' ? 'book' : 'add'} a wellness program, it will appear here.</p>
+              <p>When you book a wellness program, it will appear here.</p>
             </div>
           )}
         </div>

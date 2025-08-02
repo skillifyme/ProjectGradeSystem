@@ -1,3 +1,5 @@
+
+
 /* GLOBAL FONT RESET */
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
@@ -10,7 +12,8 @@
 
 /* HEADINGS (H1-H6) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Baskervville', serif;
+  /* font-family: 'Baskervville', serif; */
+  font-family: 'Recoleta' ,'Futura'!important;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -69,29 +72,3 @@ p, .subheading, .card-description {
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* In your global CSS file (e.g., src/styles/global.css) */
-:root {
-  --primary: #4F46E5;
-  --primary-dark: #4338CA;
-  --primary-light: #EEF2FF;
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error: #EF4444;
-  --info: #3B82F6;
-  --text: #4B5563;
-  --text-dark: #1F2937;
-  --text-light: #6B7280;
-  --border: #E5E7EB;
-  --background-light: #F9FAFB;
-  --white: #FFFFFF;
-}

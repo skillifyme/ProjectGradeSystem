@@ -11,17 +11,22 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 
 // Global Layout Components
 import Navigation from './components/Navigation';
-import HeroSection from './components/HeroSection';
-import LongevityGrid from './components/LongevityGrid';
-import ElevateSection from './components/ElevateSection';
+// import HeroSection from './components/HeroSection';
+import ChatBarSection from './components/ChatBarSection';
+import ChatboxPage from './components/ChatBoxPage';
+// import LongevityGrid from './components/LongevityGrid';
 import Slideshow from './components/Slideshow';
-import ExpertiseSection from './components/ExpertiseSection';
-import FAQSection from './components/FAQSection';
-import WellnessInsightsSection from './components/WellnessInsightSection';
+// import ExpertiseSection from './components/ExpertiseSection';
+// import FAQSection from './components/FAQSection';
+import WellnessInsightSection from './components/WellnessInsightSection';
 import PricingSection from './components/PricingSection';
 import LuxuryRetreats from './components/LuxuryRetreats';
 import Footer from './components/Footer';
 import ImmersiveScrollSection from './components/ImmersiveScrollingSection';
+import PricingPage from './components/PricingPage';
+
+import AboutPage from './pages/AboutPage';
+
 
 // Public Pages
 import ExplorePage from './pages/ExplorePage';
@@ -29,7 +34,6 @@ import ProgramListPage from './pages/ProgramListsPage';
 import ProgramDetailsPage from './pages/ProgramDetailsPage';
 
 // Dashboard Components
-// import DashboardLayout from './components/Layout/DashboardLayout';
 import UserDashboard from './pages/dashboard/User/UserDashboard';
 import UserServices from './pages/dashboard/User/UserServices';
 import FacilityServices from './pages/dashboard/Facility/FacilityServices';
@@ -43,8 +47,9 @@ import Preferences from './pages/dashboard/Shared/Preferences';
 // Styles
 import './styles/App.css';
 import './styles/global.css';
-import './styles/FacilityServices.css';
-import './styles/ServiceForm.css';
+import HomeProgramPage from './components/HomeProgramPage';
+import ProgramsSection from './components/ProgramsSection';
+
 
 // Protected Route Component with Role Checking
 const ProtectedRoute: React.FC<{ 
@@ -68,13 +73,11 @@ const ProtectedRoute: React.FC<{
 const HomePage: React.FC = () => {
   return (
     <>
-      <HeroSection />
-      <ElevateSection />
-      <LongevityGrid />
       <Slideshow />
-      <ExpertiseSection />
-      <FAQSection />
-      <WellnessInsightsSection />
+      <ChatBarSection />
+      <HomeProgramPage/>
+      <ProgramsSection/>
+      <WellnessInsightSection />
       <ImmersiveScrollSection />
       <PricingSection />
       <LuxuryRetreats />
@@ -103,18 +106,30 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'about', element: <AboutPage /> },
+      { 
+        path: '/chat',
+        element: <ChatboxPage />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const searchParams = new URLSearchParams(url.search);
+          const message = searchParams.get('message');
+          return { initialMessage: message || "I'd like to learn about wellness programs" };
+        }
+      },
       { path: 'explore', element: <ExplorePage /> },
       { path: 'programs', element: <ProgramListPage /> },
       { path: 'program-details', element: <ProgramDetailsPage /> },
-
+       {
+  path: 'pricing',
+  element: <PricingPage />
+},
       // User Dashboard Routes
       {
         path: 'dashboard/user',
         element: (
           <ProtectedRoute allowedRoles={['user']}>
-            {/* <DashboardLayout role="user"> */}
-              <Outlet />
-            {/* </DashboardLayout> */}
+            <Outlet />
           </ProtectedRoute>
         ),
         children: [
@@ -133,9 +148,7 @@ const router = createBrowserRouter([
         path: 'dashboard/facility',
         element: (
           <ProtectedRoute allowedRoles={['facility']}>
-            {/* <DashboardLayout role="facility"> */}
-              <Outlet />
-            {/* </DashboardLayout> */}
+            <Outlet />
           </ProtectedRoute>
         ),
         children: [
@@ -153,9 +166,7 @@ const router = createBrowserRouter([
         path: 'dashboard/admin',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
-            {/* <DashboardLayout role="admin"> */}
-              <Outlet />
-            {/* </DashboardLayout> */}
+            <Outlet />
           </ProtectedRoute>
         ),
         children: [

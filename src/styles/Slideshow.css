@@ -1,6 +1,9 @@
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Recoleta' ,'Futura'!important;
+}
 .slideshow {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -12,7 +15,7 @@
 .slide {
   position: absolute;
   inset: 0;
-  transition: opacity 1s ease-in-out; /* Changed to opacity for smoother fade */
+  transition: opacity 1s ease-in-out;
   opacity: 0;
   z-index: 0;
 }
@@ -22,19 +25,10 @@
   z-index: 1;
 }
 
-/* Remove transform for left/right classes if using opacity transitions */
-/* .slide.left {
-  transform: translateX(-100%);
-}
-
-.slide.right {
-  transform: translateX(100%);
-} */
-
 .slide-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
 }
 
 .slide-overlay {
@@ -71,6 +65,30 @@
   animation-delay: 0.2s;
   opacity: 0;
   color: #F5F5DC;
+  margin-bottom: 2rem;
+}
+
+.slideshow-book-btn {
+  background: #C44C30;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  animation: fade-in-up 1s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.slideshow-book-btn:hover {
+  background: #A93E2B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 76, 48, 0.3);
 }
 
 .nav-button {
@@ -156,12 +174,22 @@
 }
 
 @media (max-width: 768px) {
+  .slideshow {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
   .slide-title {
     font-size: 2rem;
   }
 
   .slide-description {
     font-size: 1rem;
+  }
+
+  .slideshow-book-btn {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 
   .nav-button {
