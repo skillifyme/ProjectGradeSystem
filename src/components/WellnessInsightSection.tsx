@@ -137,6 +137,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/WellnessInsightsSection.css';
 
 interface InsightCard {
@@ -148,6 +149,8 @@ interface InsightCard {
 }
 
 const WellnessInsightsSection: React.FC = () => {
+  const navigate = useNavigate();
+  
   const insightCards: InsightCard[] = [
     {
       id: 1,
@@ -198,7 +201,7 @@ const WellnessInsightsSection: React.FC = () => {
   };
 
   const handleExploreClick = () => {
-    console.log('Explore insights clicked');
+    navigate('/explore');
   };
 
   return (
